@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-export default function SorryApology({ onForgive, onBack }) {
+export default function SorryApology({ onForgive, onNever, onBack }) {
   const [showConfetti, setShowConfetti] = useState(false)
 
   const handleForgive = () => {
@@ -9,6 +9,11 @@ export default function SorryApology({ onForgive, onBack }) {
     setTimeout(() => {
       onForgive?.()
     }, 1400)
+  }
+
+  const handleNever = () => {
+    // No confetti, go straight to the ending page as requested
+    onNever?.()
   }
 
   return (
@@ -37,12 +42,18 @@ export default function SorryApology({ onForgive, onBack }) {
           I’ll keep trying to make you smile every day.
         </p>
 
-        <div className="mt-8">
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
           <button
             onClick={handleForgive}
             className="px-6 py-3 rounded-full bg-gradient-to-r from-rose-500 to-pink-500 text-white font-semibold shadow-lg hover:opacity-95 animate-pulse"
           >
             Forgive Me ❤️
+          </button>
+          <button
+            onClick={handleNever}
+            className="px-6 py-3 rounded-full bg-white text-blue-700 font-semibold shadow-md border border-blue-200 hover:bg-blue-50"
+          >
+            Never Forgiving
           </button>
         </div>
 

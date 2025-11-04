@@ -5,6 +5,7 @@ import MemoriesCarousel from './components/MemoriesCarousel'
 import QuestionsQuiz from './components/QuestionsQuiz'
 import SorryApology from './components/SorryApology'
 import AnniversaryCelebration from './components/AnniversaryCelebration'
+import FutureQuestions from './components/FutureQuestions'
 
 function App() {
   const [page, setPage] = useState('home')
@@ -101,10 +102,10 @@ function App() {
                   I'm Sorry
                 </button>
                 <button
-                  onClick={() => go('anniversary')}
+                  onClick={() => go('future')}
                   className="px-6 py-4 rounded-2xl bg-white/80 hover:bg-white shadow-lg border border-indigo-100 text-indigo-700 font-semibold"
                 >
-                  5-Month Anniversary
+                  Future
                 </button>
               </div>
             </motion.section>
@@ -134,6 +135,18 @@ function App() {
             </motion.section>
           )}
 
+          {page === 'future' && (
+            <motion.section
+              key="future"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+            >
+              <FutureQuestions onBack={() => setPage('home')} />
+            </motion.section>
+          )}
+
           {page === 'sorry' && (
             <motion.section
               key="sorry"
@@ -142,7 +155,11 @@ function App() {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
             >
-              <SorryApology onForgive={() => setPage('anniversary')} onBack={() => setPage('home')} />
+              <SorryApology
+                onForgive={() => setPage('anniversary')}
+                onNever={() => setPage('anniversary')}
+                onBack={() => setPage('home')}
+              />
             </motion.section>
           )}
 
