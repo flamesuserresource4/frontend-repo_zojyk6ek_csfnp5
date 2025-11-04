@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Heart } from 'lucide-react'
 
 import MemoriesCarousel from './components/MemoriesCarousel'
 import QuestionsQuiz from './components/QuestionsQuiz'
@@ -68,7 +67,7 @@ function App() {
               className="text-center"
             >
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/70 backdrop-blur shadow">
-                <Heart className="text-pink-500" />
+                <span className="text-pink-500">♥</span>
                 <span className="text-sm font-medium text-pink-700">For my love</span>
               </div>
 
@@ -78,7 +77,7 @@ function App() {
               <p className="mt-2 text-lg md:text-xl text-gray-600 italic">
                 Every moment with you is my favorite memory 💖
               </p>
-              <p className="mt-1 text-2xl md:text-4xl font-["Cedarville Cursive",cursive] text-pink-600">
+              <p className="mt-1 text-2xl md:text-4xl text-pink-600" style={{ fontFamily: 'cursive' }}>
                 Sarah
               </p>
 

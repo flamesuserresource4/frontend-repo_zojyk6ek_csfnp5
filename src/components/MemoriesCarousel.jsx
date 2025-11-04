@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { Heart, ChevronLeft, ChevronRight } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const slides = [
@@ -51,14 +50,14 @@ export default function MemoriesCarousel({ onBack }) {
           onClick={prev}
           className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-pink-600 rounded-full p-2 shadow"
         >
-          <ChevronLeft />
+          ‹
         </button>
         <button
           aria-label="Next"
           onClick={next}
           className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-pink-600 rounded-full p-2 shadow"
         >
-          <ChevronRight />
+          ›
         </button>
       </div>
 
@@ -72,7 +71,7 @@ export default function MemoriesCarousel({ onBack }) {
       </div>
 
       <p className="text-lg md:text-xl text-gray-700 bg-white/70 rounded-xl inline-flex items-center gap-2 px-4 py-2 shadow">
-        <Heart className="text-pink-500" size={18} /> {slides[index].caption}
+        <span className="text-pink-500">♥</span> {slides[index].caption}
       </p>
 
       <div className="mt-10">
